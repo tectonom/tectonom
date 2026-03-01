@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>TECTONOM</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+    --black:#111;
+    --grey:#666;
+    --light:#9a9a9a;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    height:100%;
+}
+
+body{
+    background:#ffffff;
+    color:var(--black);
+    font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",
+                Helvetica,Arial,"PingFang SC","Hiragino Sans GB",
+                "Microsoft YaHei",sans-serif;
+    display:flex;
+    flex-direction:column;
+}
+
+/* ===== 极淡背景波动 ===== */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at 30% 40%, rgba(0,0,0,0.03), transparent 60%),
+        radial-gradient(circle at 70% 60%, rgba(0,0,0,0.02), transparent 65%);
+    animation: drift 60s ease-in-out infinite alternate;
+    pointer-events:none;
+    z-index:0;
+}
+
+@keyframes drift{
+    0%{ transform:translate(0px,0px); }
+    100%{ transform:translate(-40px,20px); }
+}
+
+/* ===== 首屏 ===== */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:60px 24px;
+    position:relative;
+    z-index:1;
+}
+
+.wrapper{
+    max-width:760px;
+    width:100%;
+}
+
+h1{
+    font-size:58px;
+    font-weight:500;
+    letter-spacing:0.34em;
+    margin-bottom:64px;
+}
+
+/* ===== 字母渐次透明呼吸 ===== */
+
+h1 span{
+    display:inline-block;
+    animation: fade 5.2s ease-in-out infinite;
+}
+
+h1 span:nth-child(1){ animation-delay:0s; }
+h1 span:nth-child(2){ animation-delay:0.2s; }
+h1 span:nth-child(3){ animation-delay:0.4s; }
+h1 span:nth-child(4){ animation-delay:0.6s; }
+h1 span:nth-child(5){ animation-delay:0.8s; }
+h1 span:nth-child(6){ animation-delay:1.0s; }
+h1 span:nth-child(7){ animation-delay:1.2s; }
+h1 span:nth-child(8){ animation-delay:1.4s; }
+
+@keyframes fade{
+    0%   { opacity:1; }
+    50%  { opacity:0.55; }
+    100% { opacity:1; }
+}
+
+.divider{
+    width:48px;
+    height:1px;
+    background:var(--black);
+    margin:0 auto 64px auto;
+}
+
+.business{
+    font-size:13px;
+    letter-spacing:0.30em;
+    color:var(--grey);
+    margin-bottom:80px;
+}
+
+.contact{
+    font-size:13px;
+    letter-spacing:0.22em;
+}
+
+.contact a{
+    text-decoration:none;
+    color:var(--black);
+    border-bottom:1px solid var(--black);
+    padding-bottom:3px;
+    transition:opacity 0.3s ease;
+}
+
+.contact a:hover{
+    opacity:0.55;
+}
+
+/* ===== About ===== */
+
+.about{
+    padding:140px 24px 160px 24px;
+    max-width:720px;
+    margin:0 auto;
+    line-height:1.9;
+    font-size:15px;
+    position:relative;
+    z-index:1;
+}
+
+.about p{
+    margin-bottom:32px;
+}
+
+.about .cn{
+    margin-top:72px;
+    font-size:13px;
+    letter-spacing:0.18em;
+    color:var(--grey);
+    text-align:center;
+}
+
+/* ===== 页脚 ===== */
+
+footer{
+    text-align:center;
+    font-size:11px;
+    letter-spacing:0.24em;
+    color:var(--light);
+    padding:48px 24px 56px 24px;
+    position:relative;
+    z-index:1;
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+    <div class="wrapper">
+
+        <h1>
+            <span>T</span>
+            <span>E</span>
+            <span>C</span>
+            <span>T</span>
+            <span>O</span>
+            <span>N</span>
+            <span>O</span>
+            <span>M</span>
+        </h1>
+
+        <div class="divider"></div>
+
+        <div class="business">
+            ARCHITECTURE / SPATIAL DESIGN
+        </div>
+
+        <div class="contact">
+            <a href="mailto:info@tectonom.com">
+                info@tectonom.com
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<section class="about">
+
+    <p>
+        TECTONOM is a spatial practice concerned with structure,
+        material, and order.
+    </p>
+
+    <p>
+        We approach architecture not as image-making,
+        but as the articulation of forces —
+        visible and invisible.
+    </p>
+
+    <p>
+        Through restraint and precision,
+        we seek clarity in construction,
+        and permanence beyond trend.
+    </p>
+
+    <div class="cn">
+        矩石维象，取其以石为矩，以象成形。<br>
+        结构之中见秩序，秩序之中见空间。
+    </div>
+
+</section>
+
+<footer>
+    矩石维象（南京）设计有限公司
+</footer>
+
+</body>
+</html>
